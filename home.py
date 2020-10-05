@@ -41,6 +41,8 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=event.message.text))
 
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Hello World!'))
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text='HII2!'))
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Test Message!'))
 
 
