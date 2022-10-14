@@ -1,6 +1,6 @@
-#LINE BOT
-from flask import Flask, request, abort
+import os
 
+from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -13,9 +13,11 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi(
-    'QFjde+bwUq1VmtSqbDHkMktNH1Y1LagDdCmBahiWGgSFXtUocKB6cdBsyGwHQ6fWI/kx8KGudyKcdbQZ3PjtcX55W8elt9i0tIgscgqjA1azx7Qt9aAR3sPfbU4qRxmdAH/vqfmklVPDl1qVBZ29xwdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('360cdba78489a7e9c819e093e9b989d6')
+token = os.getenv('TOKEN')
+handler = os.getenv('HANDLER')
+
+line_bot_api = LineBotApi(token)
+handler = WebhookHandler(handler)
 
 
 @app.route("/callback", methods=['POST'])
