@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 token = os.getenv('TOKEN')
 handler = os.getenv('HANDLER')
+os.system("say 'hello world'")
 
 line_bot_api = LineBotApi(token)
 handler = WebhookHandler(handler)
