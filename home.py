@@ -47,6 +47,6 @@ def handle_message(event):
         TextSendMessage(text=event.message.text))
 
 
-
+# Start main
 if __name__ == "__main__":
     app.run()
