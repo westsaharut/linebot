@@ -1,4 +1,5 @@
 import os
+import json
 
 from flask import Flask, request, abort
 from linebot import (
@@ -36,7 +37,7 @@ def callback():
     except InvalidSignatureError:
         abort(400)
 
-    return 'OK'
+    return json.dumps({'status': 'OK'})
 
 
 @handler.add(MessageEvent, message=TextMessage)
